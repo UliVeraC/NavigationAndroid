@@ -1,9 +1,12 @@
 package com.example.navigator.Screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -15,10 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -37,12 +41,13 @@ fun HomeScreen() {
             contentAlignment = Alignment.Center,
             modifier = Modifier.padding(padding).fillMaxSize()) {
             Text(
-                "Go to Second Screend",
+                "Go to Second Screen",
                 fontSize = 25.sp,
                 color = Color.White,
                 modifier = Modifier
                     .background(color = Color.DarkGray)
                     .padding(16.dp)
+                    .clickable { navController.navigate("second")}
 
             )
         }
